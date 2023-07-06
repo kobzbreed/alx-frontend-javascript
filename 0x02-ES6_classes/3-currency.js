@@ -1,42 +1,32 @@
-#!/usr/bin/env node
-
 /* eslint-disable no-underscore-dangle */
-
 export default class Currency {
   constructor(code, name) {
-    if (typeof code !== 'string') {
-      throw new TypeError('Code must be a string');
-    }
-    if (typeof name !== 'string') {
-      throw new TypeError('Name must be a string');
-    }
     this._code = code;
     this._name = name;
-  }
-
-  /* Getter first */
-  get code() {
-    return this._code;
   }
 
   get name() {
     return this._name;
   }
 
-  /* then setters */
-
-  set code(theCode) {
-    if (typeof theCode !== 'string') {
-      throw new TypeError('Code must be a string');
+  set name(newName) {
+    if (typeof newName === 'string') {
+      this._name = newName;
+    } else {
+      throw new TypeError('Name must be a String');
     }
-    this._code = theCode;
   }
 
-  set name(theName) {
-    if (typeof theName !== 'string') {
-      throw new TypeError('Name must be a string');
+  get code() {
+    return this._code;
+  }
+
+  set code(newLength) {
+    if (typeof newLength === 'string') {
+      this._code = newLength;
+    } else {
+      throw new TypeError('Code must be a String');
     }
-    this._name = theName;
   }
 
   displayFullCurrency() {

@@ -1,1 +1,1 @@
-0x02-ES6-classes in Javascript.
+javascript frontend

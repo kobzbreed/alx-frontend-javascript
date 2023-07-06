@@ -1,39 +1,24 @@
+/* eslint-disable import/extensions */
 /* eslint-disable no-underscore-dangle */
-
-import Building from './5-building';
+import Building from './5-building.js';
 
 export default class SkyHighBuilding extends Building {
   constructor(sqft, floors) {
-    if (typeof sqft !== 'number' || typeof floors !== 'number') {
-      throw new TypeError('Provide valid dimensions and number of floors');
-    }
+    if (typeof floors !== 'number') throw new TypeError('Floors must be a Number');
     super(sqft);
     this._floors = floors;
-  }
-
-  get sqft() {
-    return this._sqft;
   }
 
   get floors() {
     return this._floors;
   }
 
-  set sqft(feet) {
-    if (typeof feet !== 'number') {
-      throw new TypeError('Provide Valid Dimensions');
-    }
-    this._sqft = feet;
-  }
-
-  set floors(newFloors) {
-    if (typeof newFloors !== 'number') {
-      throw new TypeError('Provide valid number of floors');
-    }
-    this._floors = newFloors;
+  set floors(newSqft) {
+    if (typeof newSqft !== 'number') throw new TypeError('Floors must be a Number');
+    this._floors = newSqft;
   }
 
   evacuationWarningMessage() {
-    return `Evacuate slowly the ${this.floors} floors`;
+    return `Evacuate slowly the ${this._floors} floors`;
   }
 }
