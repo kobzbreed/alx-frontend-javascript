@@ -1,4 +1,7 @@
-/* eslint-disable*/
-export default function getStudentsByLocation(getListStudents, city) {
-  return getListStudents.filter((item) => item.location === city);
+export default function getStudentIdsSum(students) {
+  if (!Array.isArray(students)) {
+    throw new TypeError(`${students} is not a valid array`);
+  }
+  const studentIdArray = students.map((student) => student.id);
+  return studentIdArray.reduce((accumulator, currentValue) => accumulator + currentValue);
 }
